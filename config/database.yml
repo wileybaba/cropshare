@@ -22,8 +22,20 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: cropshare_development
+  pool: 5
+  username: wileyconte
+  password: 
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: cropshare_development
+  pool: 5
+  username: wileyconte
+  password:
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

@@ -1,11 +1,13 @@
-# README
+# CROPSHARE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# An intelligent marketplace linking farmers and value added producers with end consumers.
 
-Things you may want to cover:
+## License
+
 
 * Ruby version
+
+  ruby 2.5.1
 
 * System dependencies
 
@@ -21,4 +23,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+For more information, go to cropshare.io 
