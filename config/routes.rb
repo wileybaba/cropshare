@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'static_pages#home'
+  get '/home', to: 'static_pages#home'
+  get '/help', to: 'static_pages#help'
+  get '/faqs', to: 'static_pages#faqs'
+  get '/terms_and_conditions', to: 'static_pages#terms_and_conditions'
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
+  get '/share_policy', to: 'static_pages#share_policy'
+  get '/customer_care', to: 'static_pages#customer_care'
+  get '/press', to: 'static_pages#press'
+  
 
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/faqs'
-  get 'static_pages/terms_and_conditions'
-  get 'static_pages/privacy_policy'
-  get 'static_pages/share_policy'
-  get 'static_pages/customer_care'
-  get 'static_pages/press'
-  root 'application#hello'
 end
