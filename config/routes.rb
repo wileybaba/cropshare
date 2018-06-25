@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get '/share_policy', to: 'static_pages#share_policy'
   get '/customer_care', to: 'static_pages#customer_care'
   get '/press', to: 'static_pages#press'
-  
+
 
 end

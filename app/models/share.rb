@@ -1,0 +1,3 @@
+class Share < ApplicationRecord
+
+end
