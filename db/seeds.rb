@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.new(email: "wileymckayconte@gmail.com", first_name: "Wiley", last_name: "Conte", username: "wileybaba", bio: "Farmer, coder, creator", admin: true, role: "admin", password: "123456", password_confirmation: "123456")
+user = User.new(email: "wileymckayconte@gmail.com",
+                first_name: "Wiley",
+                last_name: "Conte",
+                username: "wileybaba",
+                bio: "Farmer, coder, creator",
+                role: "producer",
+                password: "123456",
+                password_confirmation: "123456")
 
 user.save!
+
+share1 = Share.new()

@@ -12,6 +12,7 @@ $theme-colors: (
 .btn-og {
     background: linear-gradient(45deg, #59C173 25%, #a17fe0 51%, #5D26C1 100%);
     color: white;
+    text-decoration: none;
 }
 
 .btn-og:hover {
@@ -103,10 +104,6 @@ p {
 
 a {text-decoration: none;}
 
-// .navbar { margin-right: 20px;}
-
-.navbar-toggler { color: #00bb4e; }
-
 .navbar-nav {.btn-og a {color: white;}
               text-decoration: none;}
 
@@ -116,7 +113,7 @@ a {text-decoration: none;}
                 text-decoration: none;
                       }}
 
-#list_a_share { margin-right: 20px;
+#list_a_share {
                 text-decoration: none;}
 /* footer */
 

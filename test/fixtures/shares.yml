@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# 
+# one:
+#   producer: one
+#   member: one
+#   contains: MyText
+#   start_date: 2018-06-25
+#   regularity: 2018-06-25 15:52:35
+#   availability: MyText
+#   cost:
+#
+# two:
+#   producer: two
+#   member: two
+#   contains: MyText
+#   start_date: 2018-06-25
+#   regularity: 2018-06-25 15:52:35
+#   availability: MyText
+#   cost:

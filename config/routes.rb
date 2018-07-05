@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :shares
+  # :only => [:index, :create, :edit, :update]
   root 'static_pages#home'
   get '/home', to: 'static_pages#home'
   get '/help', to: 'static_pages#help'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get '/share_policy', to: 'static_pages#share_policy'
   get '/customer_care', to: 'static_pages#customer_care'
   get '/press', to: 'static_pages#press'
+
 
 
 end

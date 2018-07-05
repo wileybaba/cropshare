@@ -1,11 +1,34 @@
 
+<% if user_signed_in? && current_user.producer? %>
 
-<div class="center jumbotron">
-  <h1 class="display-4">Welcome to Cropshare</h1>
-  <p class="lead">An intelligent marketplace linking farmers and value added producers with end consumers.</p>
-  <hr />
-  <p>We are creating a better way to purchase food.</p>
-  <p class="lead">
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-og" %>
-  </p>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid">
+    <h1 class="display-4">List your first share!</h1>
+    <p class="lead">Getting started is easy.  Once you have the following information ready, click the link below to list your first share.</p>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action">Share contents.  Whats in your share?</li>
+      <li class="list-group-item list-group-item-action">Price and pickup frequency</li>
+      <li class="list-group-item list-group-item-action">Pickup location(s)</li>
+    </ul>
+    <br />
+    <%= button_to "+ List a share", "shares#create", id: "list_a_share", class: "card-link btn btn-og" %>
+  </div>
 </div>
+
+<!-- <%= image_tag("kohlrabi", class: "card-img-top") %> -->
+<!-- <img class="card-img-top" src="app/assets/images/kohlrabi.jpg" alt="Card image cap"> -->
+
+
+
+<% else %>
+  <div class="center jumbotron">
+    <h1 class="display-4">Welcome to Cropshare</h1>
+    <p class="lead">An intelligent marketplace linking farmers and value added producers with end consumers.</p>
+    <hr />
+    <p>We are creating a better way to purchase food.</p>
+    <p class="lead">
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-og" %>
+    </p>
+  </div>
+<% end %>

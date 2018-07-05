@@ -1,25 +1,37 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
-  enum role: [:producer, :member, :admin]
-
-  after_initialize do
-    if self.new_record?
-      self.role ||= :member
-    end 
-  end
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, :uniqueness => {:case_sensitive => false}
 
-  # has_many :shares
+
+
+  enum role: [:user, :producer, :member, :admin]
+
+  # after_initialize do
+  #   if self.new_record?
+  #     self.role ||= :user
+  #   end
+  # end
+
+
+
+
+  has_many :subscriptions
+  has_many :shares, through: :subscriptions
+
+
+
+
+
   #
   # if user.admin?
   #   #do something
   # end
+
+  # if user.member?
   #
   # if current_user.try(:admin?)
   #   #do something

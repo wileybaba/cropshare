@@ -10,20 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_25_045543) do
+ActiveRecord::Schema.define(version: 2018_07_02_223237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "producer_profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_producer_profiles_on_user_id"
+  end
+
   create_table "shares", force: :cascade do |t|
-    t.string "contains"
+    t.bigint "user_id"
+    t.text "contains"
     t.date "start_date"
-    t.string "type"
-    t.float "cost"
+    t.time "regularity"
+    t.text "availability"
+    t.money "cost", scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.string "name"
+    t.index ["name"], name: "index_shares_on_name"
     t.index ["user_id"], name: "index_shares_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.boolean "active"
+    t.integer "user_id"
+    t.integer "share_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,12 +59,11 @@ ActiveRecord::Schema.define(version: 2018_06_25_045543) do
     t.string "last_name"
     t.string "username"
     t.text "bio"
-    t.boolean "admin", default: false
-    t.integer "share_id"
     t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["share_id"], name: "index_users_on_share_id"
   end
 
+  add_foreign_key "producer_profiles", "users"
+  add_foreign_key "shares", "users"
 end

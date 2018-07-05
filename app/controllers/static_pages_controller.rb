@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    # skip_before_action :authenticate_user!, :only => [:index]
   end
 
   def help
