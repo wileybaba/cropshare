@@ -1,40 +1,67 @@
+<!-- model example code -->
+
+<!-- <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
 <h2>Sign up</h2>
 
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), validates: true) do |f| %>
   <%= devise_error_messages! %>
 
 
 
 
-<p>
-    <b>Which best describes you?</b><br />
-    <%= f.radio_button :role, 'producer' %> I am a value added producer or farm interested in listing my shares.<br />
-    <%= f.radio_button :role, 'member' %> I am a grocery purchaser interested in accessing a new way to purchase food.<br />
-    <%= f.radio_button :role, 'user' %> I'm not quite sure why I'm here. <br />
-</p>
+<b>Which best describes you?</b>
+<br  />
+
+<%= f.radio_button :role, 'producer'%>
+  <%= label_tag :role, "I am a value added producer or farm interested in listing my shares." %>
+<br  />
+<%= f.radio_button :role, 'member'%>
+  <%= label_tag :role, "I am a grocery purchaser interested in accessing a new way to purchase food." %>
+<br  />
 
 
 
   <div class="form-group">
     <%= f.label :first_name %>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "email", class: "form-control", :validate => { :presence => true } %>
   </div>
 
   <div class="form-group">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email", class: "form-control", :validate => { :presence => true } %>
   </div>
 
   <div class="form-group">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "email", class: "form-control", :validate => { :presence => true } %>
   </div>
 
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", :validate => { :presence => true } %>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 

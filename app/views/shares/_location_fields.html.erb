@@ -1,0 +1,14 @@
+<div class="form-group row">
+  <%= fields_for :locations do |ff| %>
+    <fieldset class="form-group">
+      <%= ff.label :title %>
+      <%= ff.text_field :title, class: "form-control" %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= ff.label :address, 'Address' %>
+      <%= ff.text_field :address, class: "form-control" %>
+    </fieldset>
+    <%= link_to_remove_association "remove location", f %>
+  <% end %>
+</div>

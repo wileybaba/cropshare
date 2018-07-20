@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_223237) do
+ActiveRecord::Schema.define(version: 2018_07_17_171208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string "title"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "share_id"
+    t.string "integer"
+  end
 
   create_table "producer_profiles", force: :cascade do |t|
     t.bigint "user_id"
@@ -21,15 +32,17 @@ ActiveRecord::Schema.define(version: 2018_07_02_223237) do
   end
 
   create_table "shares", force: :cascade do |t|
-    t.bigint "user_id"
     t.text "contains"
     t.date "start_date"
-    t.time "regularity"
+    t.string "regularity"
     t.text "availability"
     t.money "cost", scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "locations"
+    t.bigint "user_id"
+    t.index ["locations"], name: "index_shares_on_locations"
     t.index ["name"], name: "index_shares_on_name"
     t.index ["user_id"], name: "index_shares_on_user_id"
   end

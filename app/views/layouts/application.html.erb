@@ -16,6 +16,10 @@
   <body>
     <%= render 'layouts/header' %>
     <%= render 'layouts/messages' %>
+    <% if flash[:notice] %>
+      <p class="notice"><% flash[:notice] %></p>  
+    <% end %>
+    <div id="modal-holder"></div>
 
     <div class="container">
         <%= yield %>

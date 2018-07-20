@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, :uniqueness => {:case_sensitive => false}
-
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
 
   enum role: [:user, :producer, :member, :admin]
@@ -17,10 +18,10 @@ class User < ApplicationRecord
   # end
 
 
+  has_many :shares 
 
-
-  has_many :subscriptions
-  has_many :shares, through: :subscriptions
+  # has_many :subscriptions
+  # has_many :shares, through: :subscriptions
 
 
 

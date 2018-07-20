@@ -1,0 +1,14 @@
+
+
+<h1>TEST INDEX</h1>
+
+
+<h2>All Shares</h2>
+
+<ul class = "shares" >
+  <% @shares.each do |share| %>
+    <li>
+      <%= link_to share.name, share %>
+    </li>
+  <% end %>
+</ul>

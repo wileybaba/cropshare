@@ -19,13 +19,20 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'sprockets'
+gem 'webpacker'
 
 gem 'devise'
+# gem 'client_side_validations'
+# gem 'client_side_validations-simple_form'
 gem 'hpricot'
 gem 'ruby_parser'
 gem 'geokit-rails'
+gem 'geocoder'
+gem 'cocoon'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.4.1'
+gem 'faker'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

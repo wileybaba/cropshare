@@ -12,7 +12,7 @@
       <li class="list-group-item list-group-item-action">Pickup location(s)</li>
     </ul>
     <br />
-    <%= button_to "+ List a share", "shares#create", id: "list_a_share", class: "card-link btn btn-og" %>
+    <%= button_to "+ List a share", "shares#new", id: "list_a_share", class: "card-link btn btn-og" %>
   </div>
 </div>
 
@@ -28,7 +28,7 @@
     <hr />
     <p>We are creating a better way to purchase food.</p>
     <p class="lead">
-      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-og" %>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-og"%>
     </p>
   </div>
 <% end %>
