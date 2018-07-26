@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
       root to: "users#index"
     end
+    
   devise_for :users
   resources :shares
   resources :locations, except: [:update, :edit, :destroy]

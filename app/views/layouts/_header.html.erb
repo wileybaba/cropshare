@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <ul class="navbar-nav text-center">
         <% if user_signed_in? && current_user.producer? %>
-        <%= button_to "+ List a share", "shares#create", id: "list_a_share", class: "btn btn-og" %>
+        <%= link_to "+ List a share", new_share_path, {id: "list_a_share", class: "card-link btn btn-og", method: :get, style: 'color:white'} %>
         <% else %>
         <%= button_to "+ List a share", new_user_registration_path, method: :get, id: "list_a_share", class: "btn btn-og" %>
         <% end %>

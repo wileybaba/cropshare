@@ -5,8 +5,17 @@
   <div class="card-body">
     <h5 class="card-title"><%= @share.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @share.user.username %></h6>
-    <p class="card-text"><%= @share.contains %></p>
-    <a href="#" class="card-link">Edit Share</a>
+
+    <ul class="list-group list-group-flush">
+     <li class="list-group-item"><%= @share.contains %></li>
+     <li class="list-group-item">
+     <p class="card-text">Pickup:
+       <span class="badge badge-pill badge-secondary"><%= @share.regularity %></span> | $<%= @share.cost.to_i %> per pickup
+     </p></li>
+     <li class="list-group-item">Pickup location: ***google map***</li>
+   </ul>
+    <br />
+    <%= link_to 'Edit Share', '#', class:"card-link" %>
     <a href="#" class="card-link">Add Member</a>
   </div>
   <small class="timestamp text-muted mx-1">
