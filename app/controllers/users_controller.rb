@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :edit, :update]
 
   def index
-    @users = User.all 
+    @users = User.all
   end
 
   def new
@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @shares = @user.shares
   end
 
+  private
+
   def user_params
     params.require(:share) if params[:share].present?
   end
+
+end

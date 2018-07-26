@@ -12,7 +12,7 @@ class SharesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "new share form submit creates new share." do
-     
+
   end
 
 end

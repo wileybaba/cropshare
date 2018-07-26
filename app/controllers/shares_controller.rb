@@ -4,45 +4,52 @@ class SharesController < ApplicationController
 # skip_before_action :verify_authenticity_token
 # accepts_nested_attributes_for :locations
 
+  before_action :user_signed_in?, only: [:create, :destroy]
+
   def index
-    @shares = Share.all
-  end
-
-  def show
-  end
-
-
-  # def new
-  #   @share = current_user.shares.new
-  #   render 'shares/new'
-  # end
-
-  def create
-
-    @share = current_user.shares.new(share_params)
-    render 'shares/new'
-    if @share.save
-      flash[:notice] = "Share created!"
-      render 'static_pages/home'
+    if params[:store]
+      @shares = Share.where('store LIKE ?', "%#{params[:store]}%")
+    else
+      @shares = Share.all
     end
   end
 
-#   def edit
-#     @share = Share.find(params[:id])
-#   end
-#
-#   def update
-#     @share = Share.find(params[:id])
-#     @share.update(share_params)
-#     redirect_to @share
-#   end
-#
-#   def destroy
-#     @share = Share.find(params[:id])
-#     @share.destroy
-#     redirect_to :share
-#   end
-#
+  def show
+    @share = Share.find(params[:id])
+  end
+
+
+  def new
+    @share = current_user.shares.new(share_params)
+    render :new
+  end
+
+  def create
+    @share = current_user.shares.build(share_params)
+    if @share.save
+      flash[:notice] = "Share created!"
+      redirect_to @share
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @share = Share.find(params[:id])
+  end
+
+  def update
+    @share = Share.find(params[:id])
+    @share.update(share_params)
+    redirect_to @share
+  end
+
+  def destroy
+    @share = Share.find(params[:id])
+    @share.destroy
+    redirect_to :share
+  end
+
 private
 
 # params.permit :utf8, :_method, :authenticity_token, :commit, :id,
@@ -50,7 +57,7 @@ private
   def share_params
 
     if params[:share].present?
-      params.require(:share).permit(:name, :contains, :start_date, :regularity, :availability, :cost,
+      params.require(:share).permit(:store, :name, :contains, :start_date, :regularity, :availability, :cost,
                                     :location_params => location_params)
 
     end

@@ -1,0 +1,16 @@
+
+<div class="container" id="ListFirstShare">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid">
+        <h1 class="display-4">List your first share!</h1>
+        <p class="lead">Getting started is easy.  </p>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-action">Share contents.  Whats in your share?</li>
+          <li class="list-group-item list-group-item-action">Price and pickup frequency</li>
+          <li class="list-group-item list-group-item-action">Pickup location(s)</li>
+        </ul>
+        <br />
+        <%= link_to "+ List a share", new_share_path, {id: "list_a_share", class: "card-link btn btn-og", method: :get} %>
+      </div>
+    </div>
+</div>

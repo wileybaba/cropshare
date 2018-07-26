@@ -2,19 +2,7 @@
 <% if user_signed_in? && current_user.producer? %>
 
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container-fluid">
-    <h1 class="display-4">List your first share!</h1>
-    <p class="lead">Getting started is easy.  Once you have the following information ready, click the link below to list your first share.</p>
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-action">Share contents.  Whats in your share?</li>
-      <li class="list-group-item list-group-item-action">Price and pickup frequency</li>
-      <li class="list-group-item list-group-item-action">Pickup location(s)</li>
-    </ul>
-    <br />
-    <%= button_to "+ List a share", "shares#new", id: "list_a_share", class: "card-link btn btn-og" %>
-  </div>
-</div>
+<%= render 'shared/list_a_share_jumbotron' %>
 
 <!-- <%= image_tag("kohlrabi", class: "card-img-top") %> -->
 <!-- <img class="card-img-top" src="app/assets/images/kohlrabi.jpg" alt="Card image cap"> -->

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :locations
+      resources :producer_profiles
+      resources :shares
+      resources :subscriptions
+
+      root to: "users#index"
+    end
   devise_for :users
   resources :shares
   resources :locations, except: [:update, :edit, :destroy]

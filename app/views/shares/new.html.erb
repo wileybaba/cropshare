@@ -1,88 +1,80 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
+<div class="container">
 
-<h2>Share your crop with your local community.</h2>
+  <h2>Share your crop with your local community.</h2>
 
   <%= form_for @share do |f| %>
-
-
-
     <div class="form-group row">
       <%= f.label "Share name", class:"col-form-label" %>
       <%= f.text_field :name, class: "form-control" %>
+      <small id="ShareNameHelp" class="form-text text-muted">e.g. "Weekly Veggie, Culinary Herb, Mushroom, Flower"</small>
     </div>
 
     <div class="form-group row">
       <%= f.label "What's in your share?", class:"col-form-label" %>
       <%= f.text_area :contains, class: "form-control" %>
-      <small id="emailHelp" class="form-text text-muted">Seasonal vegetables? Fruit? Coffee? Whatever your shares will contain, let your customers know here.</small>
+      <small id="ShareContainsHelp" class="form-text text-muted">Seasonal vegetables? Fruit? Coffee? Whatever your shares will contain, let your customers know here.</small>
     </div>
 
     <div class="form-group row" data-provide="datepicker">
       <%= f.label "Start date", class:"col-form-label" %>
+      <br />
       <%= f.text_field :start_date, class: "form-control" %>
          <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
         </div>
+      <small id="ShareNameHelp" class="form-text">When is your first share to be picked up?</small>
     </div>
+
+    <br />
+
+    <div class="form-group row">
+      <%= f.label "Pickup Regularity", class:"col-form-label" %>&nbsp&nbsp&nbsp
+      <%= f.select :regularity, ['weekly', 'bi-weekly', 'monthly'], class:"form-control"%>
+    </div>
+
+    <br />
+
+    <div class="input-group row">
+      <%= f.label "Cost per pickup:", class:"col-form-label" %>&nbsp&nbsp&nbsp
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <%= f.text_field :cost, type:"text", class: "col-form-control" %>
+    </div>
+
+    <br />
+
+    <div class="input-group row">
+      <%= f.label "Pickup Location(s):", class:"col-form-label" %>&nbsp&nbsp&nbsp
+      <%= f.fields_for :address do |ff| %>
+      <div class="input-group-prepend">
+        <span class="input-group-text">Title</span>
+      </div>
+      <!-- <%= ff.label :title, class:"col-form-label" %>&nbsp&nbsp&nbsp -->
+      <%= ff.text_field :title, class:"col-form-control" %>
+    </div>
+    <br />
+    <div class="input-group row">
+      <div class="input-group-prepend">
+       <span class="input-group-text">Address</span>
+     </div>
+      <!-- <%= ff.label :address, class:"col-form-label" %>&nbsp&nbsp&nbsp -->
+      <%= ff. text_area :address, class:"form-control"%>
+      <% end %>
+    </div>
+
+
+    <br />
 
     <div class="form-group row">
       <div class="row col-md-4">
         <%= f.submit "Submit", :action => "create", type: "submit", class: "btn btn-primary" %>
       </div>
     </div>
-
   <% end %>
 
-    <!-- <div class="form-group row">
-      <legend class="col-form-label pt-0">Pickup Regularity</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Weekly
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Bi-weekly
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-          <label class="form-check-label" for="gridRadios3">
-            Monthly
-          </label>
-        </div>
-      </div>
-    </div> -->
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    </div>
-
-  <!-- <%= form_for @share do |f| %> -->
-
-
-
-  <!-- <%end%> -->
-  <!-- <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
-    </div>
-  </div> -->
+</div>

@@ -1,7 +1,15 @@
-<li>
-  <span class="user"><%= link_to share.user.name, share.user %></span>
-  <span class="content"><%= share.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(share.created_at) %> ago.
-  </span>
-</li>
+
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @share.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @share.user.username %></h6>
+    <p class="card-text"><%= @share.contains %></p>
+    <a href="#" class="card-link">Edit Share</a>
+    <a href="#" class="card-link">Add Member</a>
+  </div>
+  <small class="timestamp text-muted mx-1">
+    Posted <%= time_ago_in_words(@share.created_at) %> ago.
+  </small>
+</div>

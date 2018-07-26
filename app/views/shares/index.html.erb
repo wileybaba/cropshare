@@ -1,14 +1,25 @@
 
+<!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
+<%= form_tag(:shares, method: :get) do %>
+  <%= text_field_tag :store, params[:store], class: "form-control mr-sm-2" %>
+  <%= submit_tag 'Search Shares', name: nil, class: "btn btn-outline-success" %>
+<% end %>
+
+<!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
 
 <h1>TEST INDEX</h1>
 
-
-<h2>All Shares</h2>
 
 <ul class = "shares" >
   <% @shares.each do |share| %>
     <li>
       <%= link_to share.name, share %>
+      <br />
+      from <%= link_to share.user.username, share %>
     </li>
   <% end %>
 </ul>
