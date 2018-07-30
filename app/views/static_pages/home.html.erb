@@ -1,5 +1,10 @@
 
-<% if user_signed_in? && current_user.producer? %>
+<% if user_signed_in? && current_user.producer? && current_user.shares.any? %>
+
+<%= render 'shared/producer_portal' %>
+
+
+<% elsif user_signed_in? && current_user.producer? %>
 
 
 <%= render 'shared/list_a_share_jumbotron' %>

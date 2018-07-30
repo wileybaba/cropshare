@@ -31,11 +31,12 @@ end
 
 
 
-users = User.order(:created_at).take(6)
+users = User.order(:created_at).take(10)
 50.times do
+  name = Faker::Cannabis.strain
   content = Faker::Food.description
   start_date = Faker::Date.forward(23)
   @regs = ["weekly", "biweekly", "monthly"]
   reg = @regs.sample
-  users.each { |user| user.shares.create!(contains: content, start_date: start_date, regularity: reg) }
+  users.each { |user| user.shares.create!(name: name, contains: content, start_date: start_date, regularity: reg) }
 end

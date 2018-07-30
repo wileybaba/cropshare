@@ -7,11 +7,12 @@ class SharesController < ApplicationController
   before_action :user_signed_in?, only: [:create, :destroy]
 
   def index
-    if params[:store]
-      @shares = Share.where('store LIKE ?', "%#{params[:store]}%")
-    else
       @shares = Share.all
-    end
+    # if params[:store]
+    #   @shares = Share.where('store LIKE ?', "%#{params[:store]}%")
+    # else
+    #   @shares = Share.all
+    # end
   end
 
   def show

@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  <h2>Share your crop with your local community.</h2>
+  <h2>Sell your shares in your local community.</h2>
 
   <%= form_for @share do |f| %>
     <div class="form-group row">
@@ -50,20 +50,19 @@
 
     <div class="input-group row">
       <%= f.label "Pickup Location(s):", class:"col-form-label" %>&nbsp&nbsp&nbsp
-      <%= f.fields_for :locations do |ff| %>
+      <%= fields_for :locations do |ff| %>
       <div class="input-group-prepend">
-        <span class="input-group-text">Title</span>
+        <%= ff.label :title, class:"col-form-label input-group-text" %>
       </div>
-      <!-- <%= ff.label :title, class:"col-form-label" %>&nbsp&nbsp&nbsp -->
       <%= ff.text_field :title, class:"col-form-control" %>
     </div>
     <br />
     <div class="input-group row">
       <div class="input-group-prepend">
-       <span class="input-group-text">Address</span>
+       <%= ff.label :address, class:"col-form-label input-group-text" %>
      </div>
-      <!-- <%= ff.label :address, class:"col-form-label" %>&nbsp&nbsp&nbsp -->
-      <%= ff. text_area :address, class:"form-control"%>
+
+      <%= ff.text_area :address, class:"form-control"%>
       <% end %>
     </div>
 
